@@ -1,2 +1,4 @@
 # really-basic-python-cheat-sheet-template
-what it says on the tin. LaTeX + BaPoster.
+A simple latex template for python cheatsheets using the BaPoster class.
+
+![Screenshot of main.tex](demo_cheatsheet.png)
