@@ -1,0 +1,118 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[portrait,a0paper]{baposter} % Adjust the font scale/size here
+
+\usepackage{minted} % Required for code blocks
+\usepackage{amsmath} % Required for symbols
+
+\usepackage{lipsum} % just for dummy text
+\usepackage{url} % for url links
+
+\definecolor{lightblue}{rgb}{0.145,0.6666,1} % Defines the color used for content box headers
+
+%----------------------------------------------------------------------------------------
+%	begin document
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	poster style configuration
+%----------------------------------------------------------------------------------------
+\begin{poster}
+{   
+% keyval options
+% border options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+headerborder=closed, % Adds a border around the header of content boxes
+textborder=rounded, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+linewidth=2pt, % Width of the border lines around content boxes
+% layout options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+columns=3,
+colspacing=1em, % Column spacing
+% color %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=white, % Background color for the gradient on the right side of the poster
+borderColor=lightblue, % Border color
+headerColorOne=black, % Background color for the header in the content boxes (left side)
+headerColorTwo=lightblue, % Background color for the header in the content boxes (right side)
+headerFontColor=white, % Text color for the header text in the content boxes
+boxColorOne=white, % Background color of the content boxes
+% logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+eyecatcher=false, % Set to false for ignoring the left logo in the title and move the title left
+% block headers %%%%%%%%%%%%%%%%%%%%%%%%%
+headerheight=0.1\textheight, % Height of the header
+headershape=rounded, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
+%textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+}
+{   
+% eyecatcher aka logo options, set eyecatcher=true if you need logos
+}
+{
+% poster title
+My Cheat Sheet
+}
+{
+% poster subtitle
+\textit{subheader here, incl name}
+}
+{
+% university logo?
+}
+%----------------------------------------------------------------------------------------
+%	poster contents
+%----------------------------------------------------------------------------------------
+\begin{posterbox}[name=box0,column=0,row=0]{Getting Started}
+To install some library inside a virtual environment:
+\begin{minted}{bash}
+python -m pip install mylib
+\end{minted}
+
+To use some library in a script:
+\begin{minted}{python}
+import mylib as lib
+\end{minted}
+\end{posterbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=box1,below=box0,span=2]{A Table}
+
+Here is a basic table template.
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Method} & \textbf{Notes} & \textbf{Output} \\ \hline
+\textit{method1()} & I can't figure out how to put code blocks in a table. & int \\ \hline
+\textit{method2(start:int=0)} & This is the best I can do for now. & float \\ \hline
+\end{tabular}%
+}
+\end{posterbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=box2,span=1,align=box0,column=1]{BaPoster Documentation}
+\url{www.brian-amberg.de/uni/poster/baposter/baposter_guide.pdf}
+\end{posterbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{posterbox}[name=box3,span=1,aligned=box0,column=2]{Here's a lot of text!}
+\lipsum[1-2]
+\begin{minted}{python}
+class Lipsum:
+    def __init__(self, source):
+        self.source = source
+    
+    def genr(self, k):
+        k_words = self.source.split()
+        k_words = k_words[:k]
+        return " ".join(k_words)
+\end{minted}
+\lipsum[3]
+\begin{minted}{python}
+>>> lsm = Lipsum(LOREM_IPSUM)
+>>> lsm.genr(5)
+"Lorem ipsum dolor sit amet,"
+\end{minted}
+\end{posterbox}
+\end{poster}
+\end{document}
