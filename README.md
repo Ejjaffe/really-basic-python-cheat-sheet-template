@@ -8,4 +8,4 @@ A simple latex template for python cheatsheets, using the BaPoster class. Most c
 * baposter.cls: the latex class for baposter
 
 # How to use
-The easiest way to use these would be to load them into overleaf.com and start editing. The compiler is `pdfLaTeX` and the TeXLive version is 2021.
+The easiest way to use these would be to load `main.tex` and `baposter.cls` into an overleaf project and start editing. The compiler is `pdfLaTeX` and the TeXLive version is 2021.
